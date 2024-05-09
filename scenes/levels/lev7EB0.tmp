@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://btruqicub1ue5"]
+[gd_scene load_steps=3 format=3 uid="uid://btruqicub1ue5"]
 
 [ext_resource type="Texture2D" uid="uid://dox026bfoo3ua" path="res://icon.svg" id="1_5y32x"]
-[ext_resource type="Script" path="res://scenes/scripts/level.gd" id="1_n2ndg"]
 [ext_resource type="Script" path="res://scenes/scripts/Logo.gd" id="2_vu4vf"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_n2ndg")
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(65, 65)

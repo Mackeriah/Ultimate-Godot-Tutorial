@@ -14,6 +14,4 @@ func _ready():
 	
 
 func _process(_delta):
-	# print(Logo.position.x)
-	if Logo.position.x == 1000:
-		print("hello")	
+	pass

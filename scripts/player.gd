@@ -16,3 +16,6 @@ func _process(delta):
 	# fire
 	if Input.is_action_pressed("primary action"):
 		print("ZAP!")
+		
+	if Input.is_action_pressed("secondary_action"):
+		print("KABOOM!")

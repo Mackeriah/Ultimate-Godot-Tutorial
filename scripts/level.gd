@@ -1,11 +1,8 @@
 extends Node2D
 
-var test_array: Array[String] = ["Carly", "Lizey", "Immy"]
- 
-func _ready():		
-	# print whats in the array
-	print(test_array[1])	
-	
+func _on_area_2d_body_entered(_body):
+	pass # Replace with function body.
 
-func _process(_delta):
-	pass
+
+func _on_area_2d_body_exited(_body):
+	pass # Replace with function body.

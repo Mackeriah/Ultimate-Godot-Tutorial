@@ -15,3 +15,5 @@ position = Vector2(280, 514)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_left_gate" from="Gate" to="." method="_on_gate_player_left_gate"]
+[connection signal="player_fired_laser" from="Player" to="." method="_on_player_player_fired_laser"]
+[connection signal="player_threw_grenade" from="Player" to="." method="_on_player_player_threw_grenade"]

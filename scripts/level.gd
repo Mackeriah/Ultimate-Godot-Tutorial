@@ -1,8 +1,10 @@
 extends Node2D
 
-func _on_area_2d_body_entered(_body):
-	pass # Replace with function body.
+
+# this function can only capture the signal
+func _on_gate_player_entered_gate(body):	
+	print("player entered!!! ", body)
 
 
-func _on_area_2d_body_exited(_body):
-	pass # Replace with function body.
+func _on_gate_player_left_gate(body):	
+	print("player left :'( ", body)

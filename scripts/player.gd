@@ -2,8 +2,13 @@ extends CharacterBody2D
 
 const PLAYER_SPEED = 500
 
+var can_shoot_laser: bool = true
+var can_shoot_grenade: bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# start level time elapsed timer
+	$Timer2.start()
 	pass # Replace with function body.
 
 
@@ -15,9 +20,23 @@ func _process(_delta):
 	# delta is automatically included with move and slide
 	move_and_slide()	
 
-	# fire
-	if Input.is_action_pressed("primary action"):
-		print("ZAP!")
-		
-	if Input.is_action_pressed("secondary_action"):
+	# fire laser once
+	if Input.is_action_pressed("primary action") and can_shoot_laser:
+		print("shot laser!")
+		can_shoot_laser = false				
+		$LaserReloadTimer.start()		
+	 # throw grenade once
+	if Input.is_action_pressed("secondary_action") and can_shoot_grenade:
 		print("KABOOM!")
+		can_shoot_grenade = false
+
+
+func _on_timer_timeout():
+	print("timer up!")
+	can_shoot_laser = true
+	pass # Replace with function body.
+
+
+func _on_timer_2_timeout():
+	print("You've been in the game for 5 seconds!")
+	pass # Replace with function body.

@@ -11,6 +11,7 @@ position = Vector2(1, -39)
 script = ExtResource("1_p3hdd")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
+visibility_layer = 2
 position = Vector2(0, 5)
 texture = ExtResource("1_stu2j")
 
@@ -22,9 +23,21 @@ shape = SubResource("CircleShape2D_i7gj3")
 wait_time = 0.5
 one_shot = true
 
-[node name="Timer2" type="Timer" parent="."]
+[node name="GrenadeReloadTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
+[node name="LaserStartPositions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(20, -125)
+
+[node name="Marker2D2" type="Marker2D" parent="LaserStartPositions"]
+visibility_layer = 2
+position = Vector2(29, -125)
+
+[node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(9, -125)
+
 [connection signal="timeout" from="LaserReloadTimer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="GrenadeReloadTimer" to="." method="_on_timer_2_timeout"]

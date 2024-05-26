@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const PLAYER_SPEED = 500
 
-signal player_fired_laser
+signal laser(position)
 signal player_threw_grenade
 
 var can_shoot_laser: bool = true
@@ -11,7 +11,7 @@ var can_shoot_grenade: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# start level time elapsed timer
-	$Timer2.start()
+	$GrenadeReloadTimer.start()
 	pass # Replace with function body.
 
 
@@ -23,14 +23,18 @@ func _process(_delta):
 	# delta is automatically included with move and slide
 	move_and_slide()	
 
-	# fire laser once
+	# fire laser
 	if Input.is_action_pressed("primary action") and can_shoot_laser:
-		print("shot laser!")
+		# store the 3 laser marker positions in an array
+		var laser_markers = $LaserStartPositions.get_children()
+		# randomly select 1 from the array 
+		var selected_laser = laser_markers[randi() % laser_markers.size()] 
+		print(selected_laser)		
 		can_shoot_laser = false				
 		$LaserReloadTimer.start()		
-		player_fired_laser.emit()
+		laser.emit(selected_laser.global_position)
 		
-	 # throw grenade once
+	 # throw grenade 
 	if Input.is_action_pressed("secondary_action") and can_shoot_grenade:
 		print("KABOOM!")
 		can_shoot_grenade = false
